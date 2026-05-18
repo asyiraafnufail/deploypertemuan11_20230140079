@@ -32,6 +32,6 @@ public class SecurityConfig {
                     .password(user.getPassword()) 
                     .authorities("USER") 
                     .build();
-        }; //
-    } //
+        }; 
+    } 
 }
