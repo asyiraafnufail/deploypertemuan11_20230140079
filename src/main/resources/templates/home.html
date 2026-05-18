@@ -2,25 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Home Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-100">
-    <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold text-gray-800">Praktikum Pertemuan 11</h1>
+<body class="bg-cover bg-center bg-no-repeat min-h-screen font-sans" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop'); background-attachment: fixed;">
+    
+    <nav class="bg-white/10 backdrop-blur-md border-b border-white/10 px-8 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
+            <h1 class="text-lg font-black text-white tracking-wider uppercase">Workspace</h1>
+        </div>
         <form th:action="@{/logout}" method="post">
-            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 font-semibold transition duration-200">Logout</button>
+            <button type="submit" class="bg-white/10 hover:bg-red-500 border border-white/20 text-white text-sm px-5 py-2.5 rounded-xl font-bold transition duration-300 shadow-sm active:scale-95">Logout</button>
         </form>
     </nav>
     
-    <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-3xl font-bold mb-4 text-gray-800">Selamat Datang!</h2>
-        <p class="text-gray-600 mb-6">Anda telah berhasil lolos dari sistem autentikasi keamanan kustom Spring Security.</p>
-        
-        <div class="border-t pt-4">
-            <h3 class="text-lg font-semibold text-gray-700 mb-2">Status Sesi:</h3>
-            <p class="text-sm text-green-600 bg-green-50 inline-block px-3 py-1 rounded-full font-medium border border-green-200">✓ Terautentikasi (Role: USER)</p>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-2xl transform transition duration-500">
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-6 mb-6">
+                <div>
+                    <h2 class="text-4xl font-extrabold text-white tracking-tight mb-2 drop-shadow-sm">Selamat Datang</h2>
+                    <p class="text-white/70 text-sm">Sistem keamanan kustom berbasis Spring Security berhasil memvalidasi sesi Anda.</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="text-xs font-bold text-emerald-300 bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 px-4 py-2 rounded-full tracking-wider uppercase shadow-inner">
+                        ✓ Active Session
+                    </span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+                    <h3 class="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Role Authority</h3>
+                    <p class="text-white text-xl font-bold">ROLE_USER</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+                    <h3 class="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Server Environment</h3>
+                    <p class="text-white text-xl font-bold">Embedded Tomcat Server</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
